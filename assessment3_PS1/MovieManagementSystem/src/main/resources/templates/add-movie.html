@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Movie</title>
+</head>
+<body>
+
+<h2>Add New Movie</h2>
+
+<form th:action="@{/movies}"
+      th:object="${movie}"
+      method="post">
+
+    Title:
+    <input type="text" th:field="*{title}" required>
+    <br><br>
+
+    Genre:
+    <input type="text" th:field="*{genre}" required>
+    <br><br>
+
+    Director:
+    <input type="text" th:field="*{director}" required>
+    <br><br>
+
+    Release Year:
+    <input type="number" th:field="*{releaseYear}" required>
+    <br><br>
+
+    Rating:
+    <input type="number" step="0.1" min="0" max="10"
+           th:field="*{rating}" required>
+    <br><br>
+
+    <button type="submit">Save Movie</button>
+    <a th:href="@{/movies}">Back</a>
+
+</form>
+
+</body>
+</html>
